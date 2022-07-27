@@ -1,0 +1,179 @@
+:root{
+    --red-purple-grad: linear-gradient(0deg, brown 20%, white 100%);
+    --main-font: Quattrocento;
+    --pretty-font: 'Indie Flower';
+
+}
+
+/* General tag styling */
+body{
+    margin:0;
+    font-family: var(--main-font), serif;
+    display:grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "header" "product" "footer";
+}
+
+header{
+    grid-area:header;
+    /* background: lightcoral; */
+}
+
+footer {
+    grid-area: footer;
+    text-align:center;
+    /* background: lightgreen; */
+
+}
+
+h1, h2 {
+    font-family: var(--pretty-font), cursive;
+}
+
+/* Product page grid amd styling */
+/*Currently for larger screens only
+When screen is small enough to need mobile toggle, change layout
+header
+title (product-name)
+img 
+description (also amount and price)
+adjust
+add-product (button) should always be on the bottom
+*/
+
+.product-page{
+    grid-area: product;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "title title" "img img" "about about" "adjust adjust";
+    /* background:lavender; */
+    gap:0;
+    
+}
+
+.product-name {
+    grid-area: title;
+    margin-left:2rem;
+    font-size:14vw;
+    margin-top:1.3rem;
+    margin-bottom: 0;
+    color:red;
+    background-image: var(--red-purple-grad);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color:transparent;
+}
+
+.product-amount, .product-price{
+    margin:0;
+    
+}
+
+.product-amount{
+    font-weight: 600;
+}
+
+.product-price {
+    font-size: max(2rem ,4.3vw);
+}
+
+.about-product {
+    grid-area: about;
+    margin-top:.5rem;
+}
+
+
+.adjust-quantity{
+    grid-area:adjust;
+    display:inline-flex;
+   
+} 
+
+.add-product{
+    position: fixed;
+   /* left: clamp(30%, 35% ,40vw); */
+    bottom: 0;
+    opacity:.9;
+    height: 2.5em;
+    background:white;
+    width:100%;
+    align-items: center;
+}
+
+.add-product > button {
+    left: clamp(30%, 35% ,40vw);
+}
+
+
+.product-description{
+    box-sizing: border-box;
+    line-height: 1.4em;
+    padding-right:.5em;
+    
+}
+/* May need to play with sizes more  */
+.product-img{
+    grid-area:img;
+   padding:0 1rem;
+   align-self: center;
+  width: 92vw;
+  height: max(43vw, 330px);
+}
+
+.quantity > button{
+    font-weight: 700;
+    border-radius: 100%;
+    width:2rem;
+}
+
+.add-product > button {
+    width:8rem;
+}
+
+/* Secondary nav in footer */
+.secondary-nav {
+    display:flex;
+    justify-content: center;
+    font-size:clamp(1em, 1.1em, 3em);
+    padding-left:0;
+}
+
+.secondary-nav li {
+    list-style: none;
+    margin-inline:1.25rem;
+    padding-inline:1rem;
+}
+
+@media (min-width:590px){
+
+    .product-page{
+        grid-template-columns: min-content 1fr;
+    grid-template-areas: "img title" "img about" "img adjust";
+        
+    }
+
+    .product-name{
+        font-size: clamp(1rem, 7.5vw, 50em);
+        text-align: left;
+    }
+
+    .adjust-product{
+        grid-area: adjust;
+    }
+
+    .add-product{
+        position: relative;
+        display: inline-flex;
+        margin-inline:1rem;
+        grid-area:ad;
+        background: transparent;
+    }
+
+    .product-img{
+        grid-area:img;
+       padding:2rem 1rem;
+      width: max(50vw, 300px);
+      height: max(43vw, 330px);
+    }
+
+}
