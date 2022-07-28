@@ -8,6 +8,7 @@ body {
     margin: 0;
 }
 
+
 .topnav {
     display: flex;
     height: 70px;
@@ -18,8 +19,11 @@ body {
 }
 
 .botnav {
+    display: flex;
     height: 39px;
     background-color: #1e6b45;
+    padding-left: 3rem;
+    padding-right: 3rem;
 }
 
 .nav-left {
@@ -30,7 +34,17 @@ body {
     float: right;
 }
 
+.botnav-btn {
+    width: 5rem;
+    color: white;
+    text-align: center;
+    padding-top: 0.6rem;
+}
 
+.botnav-btn:hover {
+    background-color: #2f8058;
+    
+}
 
 .cart {
     margin-left: 1rem;
@@ -101,7 +115,7 @@ body {
         width: 2.5rem;
         border-bottom-right-radius: 6px;
         border-top-right-radius: 6px;
-        background: url(/res/search_ico_35.png) no-repeat;
+        background: url(./res/search_ico_35.png) no-repeat;
         background-position: center;
         background-color: #ffbc6c;
         border: none;
