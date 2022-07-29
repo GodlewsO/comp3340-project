@@ -10,7 +10,7 @@
 
             function main() {
                 if (empty($_POST["email"])) {
-                    echo "no email error";
+                    echo "You must enter a valid name to save<br><br>";
                     return;
                 }
 
@@ -21,7 +21,7 @@
 
                 $email = $_POST["email"];
                 $pw = $_POST["pw"];
-                
+
                 // Create and check connection
                 $conn = new mysqli($servername, $username, $password, $dbname);
                 if ($conn->connect_error) {
@@ -38,32 +38,37 @@
 				}
 
                 // Check if email found in DB
-                if ($result->num_rows > 0) {
-                    echo "An account with that email already exists.";
+                if ($result->num_rows <= 0) {
+                    echo "An account with that name doensn't exist<br>";
                     $conn->close();
                     return;
                 }
 
-                // Add email and hash into DB
-                $hash = password_hash("$pw", PASSWORD_DEFAULT);
-                $sql = "INSERT INTO `user` (`Email`, `PassHash`) VALUES ('$email', '$hash')";
+                // Pull hash from DB and check if successful
+                $sql = "SELECT `PassHash` FROM `user` WHERE `Email`='$email'";
                 $result = $conn->query($sql);
-                
-                // Check if insert successful
                 if(!$result) {
-                    echo "Error performing query";
+                    echo "Error performing query<br>";
+                    $conn->close();
+                    return;
+				}
+
+                // verify given password
+                $row = $result -> fetch_assoc();
+                $pulledHash = $row["PassHash"];
+                if (!password_verify($pw, $pulledHash)) {
+                    echo "invalid password<br>";
                     return;
                 }
-                
-                echo "Account Created.";
+                echo "Logged in<br>";
 
                 $conn->close();
             }
-
+    
             main();
         ?>
         
         <br><hr><br>
-        <a href="add.php">Back to form</a> or <a href="index.php">Back to Menu</a>
+        <a href="../index.html">Back to Menu</a>
     </body>
 </html>
