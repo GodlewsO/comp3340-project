@@ -45,7 +45,7 @@ loggedIn();
             <!-- Main Logo -->
             <a href="index.php">
                 <div class="logo nav-left">
-                        <img class="vd-logo" src="./res/vegidrone_logo.png" alt="vegidrone logo">
+                    <img class="vd-logo" src="./res/vegidrone_logo.png" alt="vegidrone logo">
                 </div>
             </a>
 

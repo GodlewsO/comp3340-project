@@ -5,34 +5,51 @@
         <meta name="author" content="TODO">
         <meta name="description" content="TODO">
         <meta name="keywords" content="TODO">
-        <link rel="stylesheet" href="style.css">
-        <title>Signup</title>
+        <link rel="stylesheet" href="../style.css">
+        <title>Vegidrone Registration</title>
     </head>
 
 
     <body>
         <!-- Main Container -->
-        <div class="main">
+        <div class="registration-main">
 
-            <!-- Signup Form -->
-            <form action="signup.php" method="post">
-                <div class="container">
-                    <label for="email">Email</label>
-                    <input type="text" placeholder="Enter Email" name="email" required><br>
-
-                    <label for="pw">Password</label>
-                    <input type="password" placeholder="Enter Password" name="pw" required><br>
-
-                    <label for="psw-repeat">Repeat Password</label>
-                    <input type="password" placeholder="Repeat Password" name="pw-repeat" required>
-
-                    <br><br><hr><br>
-                    <p>By clicking "sign up" you agree to our <a href="#">Terms & Privacy</a>.</p>
-                    
-                    <button type="submit" class="signupbtn">Sign Up</button>
+            <!-- Main Logo -->
+            <a href="../index.php">
+                <div class="registration-logo">
+                    <img class="vd-logo" src="../res/vegidrone_logo_black.png" alt="vegidrone logo">
                 </div>
-              </form>
-              <a href="../index.php"><button type="home" class="homebtn">Home</button></a>
+            </a>
+            <!-- Signup Form -->
+            <div class="registration-box">
+                <h1 class="registration-head">Create account</h1>
+
+                <form action="signup.php" method="post">
+                    <div class="container">
+                        <label for="email"><b>Email*</b></label><br>
+                        <input class="form-txt" type="text" placeholder="" name="email" required><br>
+    
+                        <label for="pw"><b>Name*</b></label><br>
+                        <input class="form-txt" type="text" placeholder="First name" name="fname" required><br>
+                        <input class="form-txt" type="text" placeholder="Last Name" name="lname" required><br>
+
+                        <label for="pw"><b>Password*</b></label><br>
+                        <input class="form-txt" type="password" placeholder="At least 8 characters" name="pw" required><br>
+    
+                        <label for="psw-repeat"><b>Repeat Password*</b></label><br>
+                        <input class="form-txt" type="password" placeholder="" name="pw-repeat" required>
+    
+                        <button type="submit" class="signup-btn">Sign Up</button>
+
+                        <br><br><hr><br>
+                        <p>By clicking "sign up" you agree to our <a href="#">Terms & Privacy</a>.</p>
+                        
+                        <br><br><hr><br>
+                        <p>Already have an account? <a href="#">Sign in </a>.</p>
+                    </div>
+                  </form>
+            </div>
+
         </div>
 
 
