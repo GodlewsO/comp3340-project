@@ -141,7 +141,7 @@ body {
     background-color: rgba(0, 0, 0, 0.4);
     padding-top: 9rem;
 }
-    .login-content {
+    .login-content, .signout-content{
         background-color: white;
         color: black;
         margin: 0.5rem auto;

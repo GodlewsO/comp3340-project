@@ -7,11 +7,12 @@ function loggedIn() {
     if (isset($_SESSION['username'])) {
         return true;
     }
-    
+
     $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
     if (!$cookie) {
         return false;
     }
+
     list ($email, $token, $mac) = explode(':', $cookie);
     if (!hash_equals(hash_hmac('sha256', $email . ':' . $token, "lMRxf3xggCa2Lxtb"), $mac)) {
         return false;
@@ -65,7 +66,7 @@ loggedIn();
                 $onclick = " onclick='showLogin();'";
                 if (isset($_SESSION['username'])) {
                     $uname = $_SESSION['username'];
-                    $onclick = "";
+                    $onclick = " onclick='showSignout();'";
                 }
                 echo "<div class='login-nav-btn' $onclick>\n
                         <p class='welcome-txt'>Welcome</p>\n
@@ -80,16 +81,27 @@ loggedIn();
                 </span>
                 <div class="login-content">
                     <form class="login-container" action="login.php" method="post">
-                            <label for="username"><b>Email</b></label>
-                            <input id="un-input" name="email" class="login-txt" type="text" placeholder="Enter Email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" required><br>
-                            <label for="password"><b>Password</b></label>
-                            <input id="pw-input" name="pw" class="login-txt" placeholder="Enter Password" type="password" required><br>
-                            <button class="login-btn" type="submit">Login</button><br>
+                        <label for="username"><b>Email</b></label>
+                        <input id="un-input" name="email" class="login-txt" type="text" placeholder="Enter Email" required><br>
+                        <label for="password"><b>Password</b></label>
+                        <input id="pw-input" name="pw" class="login-txt" placeholder="Enter Password" type="password" required><br>
+                        <button class="login-btn" type="submit">Login</button><br>
                     </form>
-                    <a href="/register/index.html"><button class="register-btn" value="register">Register</button></a>
+                    <a href="/register/index.html"><button class="register-btn">Register</button></a>
                 </div>
             </div>
             
+            <!-- Signout Window -->
+            <div id="signout-window" class="login">
+                <span class="login-close" title="Close" onclick="closeSignout();">
+                    &times;
+                </span>
+                <div class="signout-content">
+                    <form action="logout.php" method="post">
+                        <button class="signout-btn" value="signout">Sign Out</button>
+                    </form>
+                </div>
+            </div>
             
             <!-- Cart Icon -->
             <div class="cart nav-right">

@@ -107,7 +107,7 @@ loggedIn();
                         <input id="pw-input" name="pw" class="login-txt" placeholder="Enter Password" type="password" required><br>
                         <button class="login-btn" type="submit">Login</button><br>
                 </form>
-                <a href="../register/index.html"><button class="register-btn" value="register">Register</button></a>
+                <a href="./register/index.html"><button class="register-btn" value="register">Register</button></a>
             </div>
         </div>
 
@@ -129,7 +129,7 @@ loggedIn();
         </a>
 
         <!-- About Btn -->
-        <a class="botnav-btn" href="../about/index.html">
+        <a class="botnav-btn" href="./about/index.html">
             <span >About</span>
         </a>
 
