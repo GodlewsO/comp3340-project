@@ -45,6 +45,6 @@
         ?>
         
         <br><hr><br>
-        <a href="../index.html">Back to Menu</a>
+        <a href="../index.php">Back to Menu</a>
     </body>
 </html>

@@ -1,3 +1,31 @@
+<?php
+require "./dbhelper.php";
+
+session_start();
+
+function loggedIn() {
+    if (isset($_SESSION['username'])) {
+        return true;
+    }
+    
+    $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
+    if (!$cookie) {
+        return false;
+    }
+    list ($email, $token, $mac) = explode(':', $cookie);
+    if (!hash_equals(hash_hmac('sha256', $email . ':' . $token, "lMRxf3xggCa2Lxtb"), $mac)) {
+        return false;
+    }
+    $usertoken = getToken($email);
+    if (hash_equals($usertoken, $token)) {
+        $_SESSION['username'] = $email;
+        return true;
+    }
+}
+
+loggedIn();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,13 +38,11 @@
         <title>Vegidrone</title>
     </head>
     <body>
-        
-
         <!-- Top Navigation Bar -->
         <header class="topnav">
 
             <!-- Main Logo -->
-            <a href="index.html">
+            <a href="index.php">
                 <div class="logo nav-left">
                         <img class="vd-logo" src="./res/vegidrone_logo.png" alt="vegidrone logo">
                 </div>
@@ -34,10 +60,18 @@
             </form>
             
             <!-- Login Button -->
-            <div class="login-nav-btn" onclick="showLogin();">
-                <p class="welcome-txt">Welcome</p>
-                <b class="sign-in-txt">Sign In / Register</b>
-            </div>
+            <?php
+                $uname = "Sign In / Register";
+                $onclick = " onclick='showLogin();'";
+                if (isset($_SESSION['username'])) {
+                    $uname = $_SESSION['username'];
+                    $onclick = "";
+                }
+                echo "<div class='login-nav-btn' $onclick>\n
+                        <p class='welcome-txt'>Welcome</p>\n
+                        <b class='sign-in-txt'>$uname</b>\n
+                        </div>";
+            ?>
 
             <!-- Login Window -->
             <div id="login-window" class="login">
@@ -87,7 +121,7 @@
         <!-- Main Container -->
         <div class="main">
             <div class="main">
-                <a href="page.html">page.html</a>
+                <a href="page.php">Strawberry Page</a>
             </div>
         </div>
 

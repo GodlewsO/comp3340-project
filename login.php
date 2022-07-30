@@ -66,8 +66,16 @@
                         echo "Error performing query<br>";
                         return;
                 }
+
+                // Create cookie for 14 days
+                $cookie = $email . ':' . $token;
+                $mac = hash_hmac('sha256', $cookie, "lMRxf3xggCa2Lxtb");
+                $cookie .= ':' . $mac;
+                setcookie('rememberme', $cookie, time() + (60 * 60 * 24 * 14), "/");
             }
 
+
+            
             main();
         ?>
         

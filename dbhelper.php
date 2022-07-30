@@ -4,7 +4,6 @@ $DB_CONNECTION['servername'] = "localhost";
 $DB_CONNECTION['username'] = "admin";
 $DB_CONNECTION['password'] = "5194481a";
 $DB_CONNECTION['dbname'] = "godlewso_userauth";
-$SECRET_KEY = "lMRxf3xggCa2Lxtb";
 
 /**
  * Checks if given email is found in user table.
@@ -88,6 +87,7 @@ function getHash($email) {
     }
 
     $row = $result -> fetch_assoc();
+    $conn->close();
     return $row["pass_hash"];
 }
 
@@ -126,6 +126,10 @@ function emailInTokens($email) {
     return 0;
 }
 
+/**
+ * Inserts token into user_tokens table for given email.
+ * Returns 1 if true and -1 on error.
+ */
 function insertToken($email, $token) {
     // Connect to database and return -1 if unsuccessful
     global $DB_CONNECTION;
@@ -149,6 +153,10 @@ function insertToken($email, $token) {
     return 1;
 }
 
+/**
+ * Updates token into user_tokens table for given email.
+ * Returns 1 if true and -1 on error.
+ */
 function updateToken($email, $token) {
     // Connect to database and return -1 if unsuccessful
     global $DB_CONNECTION;
@@ -172,4 +180,32 @@ function updateToken($email, $token) {
     return 1;
 }
 
+/**
+ * Returns token from user_token table.
+ * If it doesn't exist, return 0.
+ * Return -1 on error.
+ */
+function getToken($email) {
+    // Connect to database and return -1 if unsuccessful
+    global $DB_CONNECTION;
+    $conn = new mysqli($DB_CONNECTION['servername'],
+                        $DB_CONNECTION['username'],
+                        $DB_CONNECTION['password'],
+                        $DB_CONNECTION['dbname']);
+    if ($conn->connect_error) {
+        return -1;
+    }
+
+    // Update token for given email and return -1 if unsuccessful
+    $sql = "SELECT `user_token` FROM `user_tokens` WHERE `email`='$email'";
+    $result = $conn->query($sql);
+    if(!$result) {
+        $conn->close();
+        return -1;
+    }
+
+    $row = $result -> fetch_assoc();
+    $conn->close();
+    return $row["user_token"];
+}
 ?>
