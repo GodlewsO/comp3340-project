@@ -12,12 +12,14 @@
 
             function main() {
                 // Get form data if it exists
-                if (empty($_POST["email"]) || empty($_POST["pw"])) {
-                    echo "Empty form error<br>";
+                if (empty($_POST["email"]) || empty($_POST["pw"]) || 
+                    empty($_POST["fname"]) || empty($_POST["lname"])) {
                     return;
                 }
                 $email = $_POST["email"];
                 $pw = $_POST["pw"];
+                $fname = $_POST["fname"];
+                $lname = $_POST["lname"];
 
                 // Check if email found in db
                 switch (emailInUser($email)) {
@@ -31,9 +33,9 @@
                         return;
                 }
 
-                // Add user and hash to database
+                // Add user to database with created password hash
                 $hash = password_hash("$pw", PASSWORD_DEFAULT);
-                if (addNewUser($email, $hash) == -1) {
+                if (addNewUser($email, $hash, $fname, $lname) == -1) {
                     echo "Error performing query<br>";
                     return;
                 }

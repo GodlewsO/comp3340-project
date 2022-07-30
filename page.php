@@ -59,64 +59,73 @@ loggedIn();
 
 
     <body>
-        <!-- Top Navigation Bar -->
         <header class="topnav">
-
-        <!-- Main Logo -->
-        <a href="index.php">
+            <!-- Main Logo -->
+            <a href="./">
             <div class="logo nav-left">
-                    <img class="vd-logo" src="./res/vegidrone_logo.png" alt="vegidrone logo">
+                <img class="vd-logo" src="./res/vegidrone_logo.png" alt="vegidrone logo">
             </div>
-        </a>
+            </a>
 
-        <!-- Deliver To -->
-        <!-- <div class="delivery nav-left">
-            <p id="location-txt">deliver to</p>
-        </div> -->
+            <!-- Deliver To -->
+            <!-- <div class="delivery nav-left">
+                <p id="location-txt">deliver to</p>
+            </div> -->
 
-        <!-- Search Bar -->
-        <form name="search" class="search nav-left">
-            <input class="search-bar" type="search">
-            <button type="submit" class="search-ico"></button>
-        </form>
+            <!-- Search Bar -->
+            <form name="search" class="search nav-left">
+                <input class="search-bar" type="search">
+                <button type="submit" class="search-ico"></button>
+            </form>
+            
+            <!-- Login Button -->
+            <?php
+                $uname = "Sign In / Register";
+                $onclick = " onclick='showLogin();'";
+                if (isset($_SESSION['username'])) {
+                    $uname = $_SESSION['username'];
+                    $onclick = " onclick='showSignout();'";
+                }
+                echo "<div class='login-nav-btn' $onclick>\n
+                        <p class='welcome-txt'>Welcome</p>\n
+                        <b class='sign-in-txt'>$uname</b>\n
+                        </div>";
+            ?>
 
-        <!-- Login Button -->
-        <?php
-            $uname = "Sign In / Register";
-            $onclick = " onclick='showLogin();'";
-            if (isset($_SESSION['username'])) {
-                $uname = $_SESSION['username'];
-                $onclick = "";
-            }
-            echo "<div class='login-nav-btn' $onclick>\n
-                    <p class='welcome-txt'>Welcome</p>\n
-                    <b class='sign-in-txt'>$uname</b>\n
-                    </div>";
-        ?>
-
-        <!-- Login Window -->
-        <div id="login-window" class="login">
-            <span class="login-close" title="Close" onclick="closeLogin();">
-                &times;
-            </span>
-            <div class="login-content">
-                <form class="login-container" action="login.php" method="post">
+            <!-- Login Window -->
+            <div id="login-window" class="login">
+                <span class="login-close" title="Close" onclick="closeLogin();">
+                    &times;
+                </span>
+                <div class="login-content">
+                    <form class="login-container" action="login.php" method="post">
                         <label for="username"><b>Email</b></label>
-                        <input id="un-input" name="email" class="login-txt" type="text" placeholder="Enter Email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" required><br>
+                        <input id="un-input" name="email" class="login-txt" type="text" placeholder="Enter Email" required><br>
                         <label for="password"><b>Password</b></label>
                         <input id="pw-input" name="pw" class="login-txt" placeholder="Enter Password" type="password" required><br>
                         <button class="login-btn" type="submit">Login</button><br>
-                </form>
-                <a href="./register/index.html"><button class="register-btn" value="register">Register</button></a>
+                    </form>
+                    <a href="./register"><button class="register-btn">Register</button></a>
+                </div>
             </div>
-        </div>
-
-
-        <!-- Cart Icon -->
-        <div class="cart nav-right">
-            <img class="cart-ico" class src="./res/cart_ico_white.png" alt="cart icon">
-            <p class="cart-text">Cart</p>
-        </div>
+            
+            <!-- Signout Window -->
+            <div id="signout-window" class="login">
+                <span class="login-close" title="Close" onclick="closeSignout();">
+                    &times;
+                </span>
+                <div class="signout-content">
+                    <form action="./logout.php" method="post">
+                        <button class="signout-btn" value="signout">Sign Out</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Cart Icon -->
+            <div class="cart nav-right">
+                <img class="cart-ico" class src="./res/cart_ico_white.png" alt="cart icon">
+                <p class="cart-text">Cart</p>
+            </div>
 
         </header>
 

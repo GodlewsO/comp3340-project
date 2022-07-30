@@ -43,7 +43,7 @@ loggedIn();
         <header class="topnav">
 
             <!-- Main Logo -->
-            <a href="index.php">
+            <a href="./">
                 <div class="logo nav-left">
                     <img class="vd-logo" src="./res/vegidrone_logo.png" alt="vegidrone logo">
                 </div>
@@ -87,7 +87,7 @@ loggedIn();
                         <input id="pw-input" name="pw" class="login-txt" placeholder="Enter Password" type="password" required><br>
                         <button class="login-btn" type="submit">Login</button><br>
                     </form>
-                    <a href="/register/index.html"><button class="register-btn">Register</button></a>
+                    <a href="./register"><button class="register-btn">Register</button></a>
                 </div>
             </div>
             
@@ -97,7 +97,7 @@ loggedIn();
                     &times;
                 </span>
                 <div class="signout-content">
-                    <form action="logout.php" method="post">
+                    <form action="./logout.php" method="post">
                         <button class="signout-btn" value="signout">Sign Out</button>
                     </form>
                 </div>

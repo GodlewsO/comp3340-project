@@ -52,6 +52,7 @@ body {
     margin-left: 1rem;
     margin-top: 0.2rem;
     margin-bottom: 0.2rem;
+    min-width: fit-content;
     border: 1px solid transparent;
     cursor: pointer;
 }
@@ -177,6 +178,7 @@ body {
         margin-left: 1rem;
         margin-top: 0.2rem;
         margin-bottom: 0.2rem;
+        min-width: fit-content;
         border: 1px solid transparent;
         padding: 1rem;
         cursor: pointer;
@@ -199,11 +201,16 @@ footer {
     width: 400px;
 }
 
-.form-txt {
-    margin-bottom: 1rem;
+.registration-form-txt {
     height: 2rem;
     width: 100%;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
 }
+
+    .registration-field {
+        margin-top: 1rem;
+    }
 
 .signup-btn {
     width: 100%;
@@ -211,6 +218,7 @@ footer {
     background-color:#ffbc6c;
     border: 1px solid grey;
     border-radius: 3px;
+    margin-top: 1rem;
 }
     
     .signup-btn:hover {
@@ -226,3 +234,12 @@ footer {
 .registration-head {
     margin-bottom: 1rem;
 }
+
+.error {
+    border: 1px solid red;
+}
+
+    .error-txt {
+        color: red;
+        border: none;
+    }

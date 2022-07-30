@@ -43,7 +43,7 @@ function emailInUser($email) {
  * Creates a new user in user table with given data.
  * Returns 1 on success, and -1 on error.
  */
-function addNewUser($email, $hash) {
+function addNewUser($email, $hash, $fname, $lname) {
     // Connect to database and return -1 if unsuccessful
     global $DB_CONNECTION;
     $conn = new mysqli($DB_CONNECTION['servername'],
@@ -55,7 +55,8 @@ function addNewUser($email, $hash) {
     }
 
     // Add email and hash into user table and check if successful
-    $sql = "INSERT INTO `user` (`email`, `pass_hash`) VALUES ('$email', '$hash')";
+    $sql = "INSERT INTO `user` (`email`, `pass_hash`, `fname`, `lname`)
+            VALUES ('$email', '$hash', '$fname', '$lname')";
     $result = $conn->query($sql);
     if(!$result) {
         echo "Error performing query";
