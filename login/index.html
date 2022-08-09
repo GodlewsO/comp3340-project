@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="author" content="TODO">
+        <meta name="description" content="TODO">
+        <meta name="keywords" content="TODO">
+        <link rel="stylesheet" href="../style.css">
+        <title>Vegidrone Registration</title>
+
+        <script src="./script.js" defer></script>
+    </head>
+
+
+    <body>
+        <!-- Main Container -->
+        <div class="login-main">
+
+            <!-- Main Logo -->
+            <a href="../index.php">
+                <div class="registration-logo">
+                    <img class="vd-logo" src="../res/vegidrone_logo_black.png" alt="vegidrone logo">
+                </div>
+            </a>
+            <!-- Signup Form -->
+            <div class="registration-box">
+                <h1 class="registration-head">Sign-In</h1>
+                <form action="./signup.php" method="post" name="regForm" onsubmit="return(validateRegistration());">
+                    <div class="container">
+                        <div class="registration-field">
+                            <label for="email"><b>Email address</b></label><br>
+                            <input class="registration-form-txt" type="text" id="login -email" name="email" maxlength="64" required><br>
+                            <small class="error-txt" id="reg-email-err"></small>
+                        </div>
+                        
+                        <div class="registration-field">
+                            <label for="pw"><b>Password</b></label><br>
+                            <input class="registration-form-txt" type="password" id="reg-pw" name="pw" maxlength="64" required><br>
+                            <small class="error-txt" id="reg-pw-err"></small>
+                        </div>
+
+                        <button type="submit" class="signup-btn">Sign-In</button>
+
+                        <label for="vehicle3">Keep me signed in.</label> 
+                        <input type="checkbox" id="keep-signed-in" name="keep-signed-in" value="signed-in">
+                        
+                        <br><br><hr><br>
+                        <p>New to Vegidrone?<br><a href="../register/">Create an account</a>.</p>
+                    </div>
+                  </form>
+            </div>
+
+        </div>
+
+
+    </body>
+</html>

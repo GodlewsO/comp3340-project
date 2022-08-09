@@ -58,5 +58,5 @@ function main() {
 }
 
 main();
-header('Location: ./index.php');
+header('Location: ../');
 ?>

@@ -98,7 +98,7 @@ loggedIn();
                     &times;
                 </span>
                 <div class="login-content">
-                    <form class="login-container" action="login.php" method="post">
+                    <form class="login-container" action="./login/login.php" method="post">
                         <label for="username"><b>Email</b></label>
                         <input id="un-input" name="email" class="login-txt" type="text" placeholder="Enter Email" required><br>
                         <label for="password"><b>Password</b></label>
