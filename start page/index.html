@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="author" content="TODO">
+        <meta name="description" content="TODO">
+        <meta name="keywords" content="TODO">
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+        <title>Vegidrone</title>
+    </head>
+    <body>
+        <!-- Top Navigation Bar -->
+        <header class="topnav">
+
+            <!-- Main Logo -->
+            <a href="./">
+                <div class="logo nav-left">
+                    <img class="vd-logo" src="./res/vegidrone_logo.png" alt="vegidrone logo">
+                </div>
+            </a>
+
+            <!-- Deliver To -->
+            <!-- <div class="delivery nav-left">
+                <p id="location-txt">deliver to</p>
+            </div> -->
+
+            <!-- Search Bar -->
+            <form name="search" class="search nav-left">
+                <input class="search-bar" type="search">
+                <button type="submit" class="search-ico"></button>
+            </form>
+            
+            <!-- Login Button -->
+            <div class='login-nav-btn'  onclick='showLogin();'>
+
+                        <p class='welcome-txt'>Welcome</p>
+
+                        <b class='sign-in-txt'>Sign In / Register</b>
+
+                        </div>
+            <!-- Login Window -->
+            <div id="login-window" class="login">
+                <span class="login-close" title="Close" onclick="closeLogin();">
+                    &times;
+                </span>
+                <div class="login-content">
+                    <form class="login-container" action="login.php" method="post">
+                        <label for="username"><b>Email</b></label>
+                        <input id="un-input" name="email" class="login-txt" type="text" placeholder="Enter Email" required><br>
+                        <label for="password"><b>Password</b></label>
+                        <input id="pw-input" name="pw" class="login-txt" placeholder="Enter Password" type="password" required><br>
+                        <button class="login-btn" type="submit">Login</button><br>
+                    </form>
+                    <a href="./register"><button class="register-btn">Register</button></a>
+                </div>
+            </div>
+            
+            <!-- Signout Window -->
+            <div id="signout-window" class="login">
+                <span class="login-close" title="Close" onclick="closeSignout();">
+                    &times;
+                </span>
+                <div class="signout-content">
+                    <form action="./logout.php" method="post">
+                        <button class="signout-btn" value="signout">Sign Out</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Cart Icon -->
+            <div class="cart nav-right">
+                <img class="cart-ico" class src="./res/cart_ico_white.png" alt="cart icon">
+                <p class="cart-text">Cart</p>
+            </div>
+ 
+        </header>
+
+        <!-- Bottom Navigation Bar -->
+        <div class="botnav">
+
+            <!-- Browse Btn -->
+            <a class="botnav-btn" href="#">
+                <span >Browse</span>
+            </a>
+
+            <!-- About Btn -->
+            <a class="botnav-btn" href="./about/index.html">
+                <span >About</span>
+            </a>
+
+            <!-- Contact Btn -->
+            <a class="botnav-btn" href="#">
+                <span>Contact</span>
+            </a>
+        </div>
+
+        <!-- Main Container -->
+        <div class="main">
+            <div class="main">
+                <a href="page.php">Strawberry Page</a>
+            </div>
+        </div>
+
+        
+        <!--Future section for comments-->
+        <!-- <section class="comments"></section> -->
+        <footer>
+            <p class="copyright">Copyright &copy; VegiDrone 2022 - All Rights Reserved</p>
+            <nav>
+                <ul class="secondary-nav">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+                    <li><a href="#">Returns Policy</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </body>
+</html>
