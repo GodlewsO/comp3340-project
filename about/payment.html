@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Design Web Page</title>
+<style>
+#table, th {
+border: 1px solid black;
+margin:10px;
+padding:5px;
+}
+#table {
+border-spacing: 0px;
+}
+</style>
+</head>
+<body>
+<h2 style="color:orange;">Payment Page</h2>
+<form>
+<table>
+<tr>
+<td>
+Name:  <input type="text" name="name"><br><br>
+</td>
+</tr>
+<tr>
+<td> Email : <input type="email" name="email"><br><br>
+</tr>
+<tr>
+<td> Address:  <textarea rows="4" cols="25"></textarea><br><br></td>
+</tr>
+<tr>
+<td> PostCode: <input type="number" name="postcode"><br><br></td>
+</tr>
+<table id="table" border = "1">
+<tr>
+<th>Product</th>
+<th>Types of Product</th>
+<th>Quantity</th>
+<th>Unit Price</th>
+<th>Sub total</th>
+<tr>
+<td>Strawberries</td>
+<td>LB100</td>
+<td>3</td>
+<td>$5</td>
+<td>$15</td>
+</tr>
+<tr>
+<td>Organic Banana</td>
+<td>LB200</td>
+<td>4</td>
+<td>$10</td>
+<td>$40</td>
+</tr>
+<tr>
+<td>Premium Mango</td>
+<td>LB300</td>
+<td>1</td>
+<td>$15</td>
+<td>$15</td>
+</tr>
+<tr>
+<td>Watermelon</td>
+<td>LB400</td>
+<td>0</td>
+<td>$0</td>
+<td>$</td>
+</tr>
+<tr>
+<td>Dragon fruit</td>
+<td>LB500</td>
+<td>1</td>
+<td>$30</td>
+<td>$30</td>
+</tr>
+<tr >
+<td colspan="4" >Total</td>
+<td>$100</td>
+</tr>
+</table>
+<br><br>
+<h2>Credit Card Details</h2>
+         <br><br>
+         Card Type :<br><br>
+         <input type="radio" name="Mastercard" value="Mastercard" checked> Mastercard &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Card Number :&nbsp; <input type="number" name="cardnumber"><br><br>
+         <input type="radio" name="Visa" value="Visa"> Visa&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Expiry Date :&nbsp; &nbsp; <input type="datetime" name="date"><br><br>
+         <input type="radio" name="AmericanExpress" value="AmericanExpress"> American Express<br><br>
+         <input type="radio" name="dinersclub" value="dinersclub" > Diners Club<br><br>
+         <b>Delivery Address :</b> &nbsp;&nbsp;
+         <textarea rows="4" cols="50"></textarea>
+         <br><br>
+         <input type="submit" value="Send Order"> &nbsp;&nbsp; <input type="button" name="Clear" value="Clear form">
+      </form>
+   </body>
+</html>
