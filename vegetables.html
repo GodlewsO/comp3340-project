@@ -1,32 +1,3 @@
-<?php
-require "./dbhelper.php";
-
-session_start();
-
-function loggedIn() {
-    if (isset($_SESSION['username'])) {
-        return true;
-    }
-
-    $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
-    if (!$cookie) {
-        return false;
-    }
-
-    list ($email, $token, $mac) = explode(':', $cookie);
-    if (!hash_equals(hash_hmac('sha256', $email . ':' . $token, "lMRxf3xggCa2Lxtb"), $mac)) {
-        return false;
-    }
-    $usertoken = getToken($email);
-    if (hash_equals($usertoken, $token)) {
-        $_SESSION['username'] = $email;
-        return true;
-    }
-}
-
-loggedIn();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -103,12 +74,10 @@ loggedIn();
             </div>
             
             <!-- Cart Icon -->
-            <a href="./about/payment.html">
-                <div class="cart nav-right">
-                    <img class="cart-ico" class src="./res/cart_ico_white.png" alt="cart icon">
-                    <p class="cart-text">Cart</p>
-                </div>
-            </a>
+            <div class="cart nav-right">
+                <img class="cart-ico" class src="./res/cart_ico_white.png" alt="cart icon">
+                <p class="cart-text">Cart</p>
+            </div>
  
         </header>
 
@@ -116,7 +85,7 @@ loggedIn();
         <div class="botnav">
 
             <!-- Browse Btn -->
-            <a class="botnav-btn" href="#">
+            <a class="botnav-btn" href="./browse.html">
                 <span >Browse</span>
             </a>
 
@@ -134,8 +103,25 @@ loggedIn();
         <!-- Main Container -->
         <div class="main">
             <div class="main">
-                <a href="fruits.html">Fruits</a><br>
-                <a href="vegetables.html">Vegetables</a>
+                <a href="./vegetables/Asian_Vegetables/page.html">Asian_Vegetables</a><br>
+                <a href="./vegetables/Asparagus/page.html">Asparagus</a><br>
+                <a href="./vegetables/Beans/page.html">Beans</a><br>
+                <a href="./vegetables/Beets/page.html">Beets</a><br>
+                <a href="./vegetables/Broccoli/page.html">Broccoli</a><br>
+                <a href="./vegetables/Brussel_Sprouts/page.html">Brussel_Sprouts</a><br>
+                <a href="./vegetables/Cabbage/page.html">Cabbage</a><br>
+                <a href="./vegetables/Carrots/page.html">Carrots</a><br>
+                <a href="./vegetables/Cauliflower/page.html">Cauliflower</a><br>
+                <a href="./vegetables/Celery/page.html">Celery</a><br>
+                <a href="./vegetables/Cucumbers/page.html">Cucumbers</a><br>
+                <a href="./vegetables/Eggplants/page.html">Eggplants</a><br>
+                <a href="./vegetables/Garlic/page.html">Garlic</a><br>
+                <a href="./vegetables/Leeks/page.html">Leeks</a><br>
+                <a href="./vegetables/Lettuce/page.html">Lettuce</a><br>
+                <a href="./vegetables/Mushrooms/page.html">Mushrooms</a><br>
+                <a href="./vegetables/Pumpkin/page.html">Pumpkin</a><br>
+                <a href="./vegetables/Squash/page.html">Squash</a><br>
+
             </div>
         </div>
 

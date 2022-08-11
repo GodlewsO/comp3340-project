@@ -1,32 +1,3 @@
-<?php
-require "./dbhelper.php";
-
-session_start();
-
-function loggedIn() {
-    if (isset($_SESSION['username'])) {
-        return true;
-    }
-
-    $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
-    if (!$cookie) {
-        return false;
-    }
-
-    list ($email, $token, $mac) = explode(':', $cookie);
-    if (!hash_equals(hash_hmac('sha256', $email . ':' . $token, "lMRxf3xggCa2Lxtb"), $mac)) {
-        return false;
-    }
-    $usertoken = getToken($email);
-    if (hash_equals($usertoken, $token)) {
-        $_SESSION['username'] = $email;
-        return true;
-    }
-}
-
-loggedIn();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -103,12 +74,10 @@ loggedIn();
             </div>
             
             <!-- Cart Icon -->
-            <a href="./about/payment.html">
-                <div class="cart nav-right">
-                    <img class="cart-ico" class src="./res/cart_ico_white.png" alt="cart icon">
-                    <p class="cart-text">Cart</p>
-                </div>
-            </a>
+            <div class="cart nav-right">
+                <img class="cart-ico" class src="./res/cart_ico_white.png" alt="cart icon">
+                <p class="cart-text">Cart</p>
+            </div>
  
         </header>
 
@@ -116,7 +85,7 @@ loggedIn();
         <div class="botnav">
 
             <!-- Browse Btn -->
-            <a class="botnav-btn" href="#">
+            <a class="botnav-btn" href="./browse.html">
                 <span >Browse</span>
             </a>
 
@@ -134,8 +103,9 @@ loggedIn();
         <!-- Main Container -->
         <div class="main">
             <div class="main">
-                <a href="fruits.html">Fruits</a><br>
+                <a href="fruits.html">Fruits</a>
                 <a href="vegetables.html">Vegetables</a>
+
             </div>
         </div>
 
