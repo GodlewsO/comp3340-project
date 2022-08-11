@@ -103,10 +103,12 @@ loggedIn();
             </div>
             
             <!-- Cart Icon -->
-            <div class="cart nav-right">
-                <img class="cart-ico" class src="./res/cart_ico_white.png" alt="cart icon">
-                <p class="cart-text">Cart</p>
-            </div>
+            <a href="./about/payment.html">
+                <div class="cart nav-right">
+                    <img class="cart-ico" class src="./res/cart_ico_white.png" alt="cart icon">
+                    <p class="cart-text">Cart</p>
+                </div>
+            </a>
  
         </header>
 
