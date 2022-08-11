@@ -125,7 +125,7 @@ loggedIn();
             </a>
 
             <!-- Contact Btn -->
-            <a class="botnav-btn" href="#">
+            <a class="botnav-btn" href="./about/contact.html">
                 <span>Contact</span>
             </a>
         </div>
