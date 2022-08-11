@@ -2,7 +2,7 @@
 
 session_start();
 
-require './dbhelper.php';
+require '../dbhelper.php';
 
 function main() {
     // Get form data if it exists
@@ -14,22 +14,22 @@ function main() {
 
     // Check if email found in db
     switch (emailInUser($email)) {
-        case 0: // account doesn't exist with that email
+        case 0:     // account doesn't exist with that email
             return;
         case 1:
             break;
-        case -1: // error performing query
+        case -1:    // error performing query
             return;
     }
 
     // Get hash of password for given email
     $pulledHash = getHash($email);
-    if ($pulledHash == -1) { // error performing query
+    if ($pulledHash == -1) {    // error performing query
         return;
     }
 
     // Verify given password
-    if (!password_verify($pw, $pulledHash)) { // invalid password
+    if (!password_verify($pw, $pulledHash)) {   // invalid password
         return;
     }
 
@@ -37,12 +37,12 @@ function main() {
     $token = bin2hex(openssl_random_pseudo_bytes(16));
     switch (emailInTokens($email)) {
         case 0:
-            if (insertToken($email, $token) == -1) {// error performing query
+            if (insertToken($email, $token) == -1) {    // error performing query
                 return;
             }
             break;
         case 1:
-            if (updateToken($email, $token) == -1) { // error performing query
+            if (updateToken($email, $token) == -1) {    // error performing query
                 return;
             }
             break;

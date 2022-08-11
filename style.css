@@ -4,15 +4,24 @@
     box-sizing: border-box;   
 }
 
+:root {
+    --important1: #ffbc6c;
+    --important2: #f2c674;
+    --important3: #c79254;
+    --primary: #2da66b;
+    --primaryHover: #2f8058;
+    --secondary: #1e6b45;
+    --background: white;
+}
+
 body {
     margin: 0;
 }
 
-
 .topnav {
     display: flex;
     height: 70px;
-    background-color: #2da66b;
+    background-color: var(--primary);
     color: white;
     padding-left: 3rem;
     padding-right: 3rem;
@@ -21,7 +30,7 @@ body {
 .botnav {
     display: flex;
     height: 39px;
-    background-color: #1e6b45;
+    background-color: var(--secondary);
     padding-left: 3rem;
     padding-right: 3rem;
 }
@@ -44,7 +53,7 @@ body {
 }
 
 .botnav-btn:hover {
-    background-color: #2f8058;
+    background-color: var(--primaryHover);
     
 }
 
@@ -120,14 +129,14 @@ body {
         border-top-right-radius: 6px;
         background: url(./res/search_ico_35.png) no-repeat;
         background-position: center;
-        background-color: #ffbc6c;
+        background-color: var(--important1);
         border: none;
         border-left: 1px solid black;
         transform: translate(0, -2.5rem) 
     }
 
     .search-ico:hover {
-        background-color: #c79254;
+        background-color: var(--important3);
     }
 
 .login {
@@ -143,7 +152,7 @@ body {
     padding-top: 9rem;
 }
     .login-content, .signout-content{
-        background-color: white;
+        background-color: var(--background);
         color: black;
         margin: 0.5rem auto;
         width: 25rem;
@@ -201,28 +210,42 @@ footer {
     width: 400px;
 }
 
-.registration-form-txt {
-    height: 2rem;
-    width: 100%;
-    padding-left: 0.3rem;
-    padding-right: 0.3rem;
-}
+    .registration-form-txt {
+        height: 2rem;
+        width: 100%;
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+    }
 
     .registration-field {
         margin-top: 1rem;
     }
 
+.admin-login {
+    border: 1px solid black;
+    border-radius: 3px;
+    margin: auto;
+    padding: 2rem;
+    padding-top: 1rem;
+    width: 400px;
+}
+    .admin-login-title {
+        text-align: center;
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+    }
+
 .signup-btn {
     width: 100%;
     height: 2rem;
-    background-color:#ffbc6c;
+    background-color:var(--important1);
     border: 1px solid grey;
     border-radius: 3px;
     margin-top: 1rem;
 }
     
     .signup-btn:hover {
-        background-color:#f2c674;
+        background-color: var(--important2);
     }
 
 .registration-logo {
