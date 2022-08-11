@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="description" content="admin login">
+        <meta name="keywords" content="amin login">
+        <link rel="stylesheet" href="../style.css">
+        <title>Admin Login</title>
+
+        <script></script>
+    </head>
+
+
+    <body>
+        <div class="login-main">
+            <h1 class="admin-login-title">Login</h1>
+            <div class="admin-login">
+                <form action="./adminlogin.php" method="post" name="adminLogin">
+                    <div class="container">
+                        <div class="registration-field">
+                            <label for="uname"><b>username</b></label><br>
+                            <input class="registration-form-txt" type="text" id="uname" name="uname" maxlength="64" required><br>
+                        </div>
+                        
+                        <div class="registration-field">
+                            <label for="pw"><b>password</b></label><br>
+                            <input class="registration-form-txt" type="password" id="pw" name="pw" maxlength="64" required><br>
+                        </div>
+    
+                        <button type="submit" class="signup-btn">Sign-In</button><br>
+
+                        <a href="../">Home</a>
+
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
