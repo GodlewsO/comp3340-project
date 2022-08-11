@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="description" content="admin help">
+        <meta name="keywords" content="admin help">
+        <link rel="stylesheet" href="./style.css">
+        <title>Admin Help</title>
+
+        <script src="./script.js" defer></script>
+    </head>
+
+    <body>
+        <p>
+            Create a database and run the following commands:<br><br><hr>
+            <ul>
+                <li>
+                    DROP TABLE IF EXISTS `admin`; <br>
+                    CREATE TABLE IF NOT EXISTS `admin` (<br>
+                        `uname` varchar(64) COLLATE utf8_unicode_ci NOT NULL,<br>
+                        `pass_hash` char(60) COLLATE utf8_unicode_ci NOT NULL,<br>
+                        PRIMARY KEY (`uname`)<br>
+                    ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+                </li>
+
+                <br>
+                <li>
+                    DROP TABLE IF EXISTS `admin_tokens`;<br>
+                    CREATE TABLE IF NOT EXISTS `admin_tokens` (<br>
+                        `uname` varchar(64) COLLATE utf8_unicode_ci NOT NULL,<br>
+                        `admin_token` char(32) COLLATE utf8_unicode_ci NOT NULL,<br>
+                        PRIMARY KEY (`uname`)<br>
+                    ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+                </li>
+
+                <br>
+                <li>
+                    DROP TABLE IF EXISTS `banned_emails`;<br>
+                    CREATE TABLE IF NOT EXISTS `banned_emails` (<br>
+                      `id` int(11) NOT NULL AUTO_INCREMENT,<br>
+                      `email` varchar(64) COLLATE utf8_unicode_ci NOT NULL,<br>
+                      PRIMARY KEY (`id`)<br>
+                    ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+                </li>
+
+                
+                <br>
+                <li>
+                    DROP TABLE IF EXISTS `user`;<br>
+                    CREATE TABLE IF NOT EXISTS `user` (<br>
+                      `email` varchar(64) COLLATE utf8_unicode_ci NOT NULL,<br>
+                      `pass_hash` char(60) COLLATE utf8_unicode_ci NOT NULL,<br>
+                      `fname` varchar(64) COLLATE utf8_unicode_ci NOT NULL,<br>
+                      `lname` varchar(64) COLLATE utf8_unicode_ci NOT NULL,<br>
+                      PRIMARY KEY (`email`)<br>
+                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+                </li>
+
+                
+                <br>
+                <li>
+                    DROP TABLE IF EXISTS `user_tokens`;<br>
+                    CREATE TABLE IF NOT EXISTS `user_tokens` (<br>
+                      `email` varchar(60) COLLATE utf8_unicode_ci NOT NULL,<br>
+                      `user_token` char(32) COLLATE utf8_unicode_ci NOT NULL,<br>
+                      PRIMARY KEY (`email`)<br>
+                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+                </li>
+                <hr>
+              </ul>
+              <br><br>
+
+              update dbhelper.php with your database's authentication information
+        </p>
+    </body>
+</html>

@@ -31,9 +31,8 @@ loggedIn();
 <html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="author" content="TODO">
-        <meta name="description" content="TODO">
-        <meta name="keywords" content="TODO">
+        <meta name="description" content="vegidrone home page">
+        <meta name="keywords" content="home vegidrone food homepage">
         <link rel="stylesheet" href="style.css">
         <script src="script.js"></script>
         <title>Vegidrone</title>
@@ -144,7 +143,7 @@ loggedIn();
             <p class="copyright">Copyright &copy; VegiDrone 2022 - All Rights Reserved</p>
             <nav>
                 <ul class="secondary-nav">
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="./about">About Us</a></li>
                     <li><a href="#">Privacy Policy</a></li>
                     <li><a href="#">Terms and Conditions</a></li>
                     <li><a href="#">Returns Policy</a></li>
