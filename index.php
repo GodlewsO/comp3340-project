@@ -80,13 +80,16 @@ loggedIn();
                 </span>
                 <div class="login-content">
                     <form class="login-container" action="./login/login.php" method="post">
-                        <label for="username"><b>Email</b></label>
+                        <label for="un-input"><b>Email</b></label>
                         <input id="un-input" name="email" class="login-txt" type="text" placeholder="Enter Email" required><br>
-                        <label for="password"><b>Password</b></label>
+                        <label for="pw-input"><b>Password</b></label>
                         <input id="pw-input" name="pw" class="login-txt" placeholder="Enter Password" type="password" required><br>
                         <button class="login-btn" type="submit">Login</button><br>
                     </form>
-                    <a href="./register"><button class="register-btn">Register</button></a>
+                    <form action="./register">
+                        <input class="register-btn" type="submit" value="Register" />
+                    </form>
+                    <!-- <a href="./register"><button class="register-btn">Register</button></a> -->
                 </div>
             </div>
             
@@ -105,7 +108,7 @@ loggedIn();
             <!-- Cart Icon -->
             <a href="./about/payment.html">
                 <div class="cart nav-right">
-                    <img class="cart-ico" class src="./res/cart_ico_white.png" alt="cart icon">
+                    <img class="cart-ico" src="./res/cart_ico_white.png" alt="cart icon">
                     <p class="cart-text">Cart</p>
                 </div>
             </a>
